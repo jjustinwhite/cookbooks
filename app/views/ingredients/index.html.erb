@@ -7,12 +7,12 @@
     <% @ingredients.each do |ingredient| %>
       <tr>
         <td><%= ingredient.name %></td>
-        <td><%= link_to 'Show', ingredient %></td>
-        <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-        <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', ingredient, class: "btn btn-sm btn-outline-primary"  %></td>
+        <td><%= link_to 'Edit', edit_ingredient_path(ingredient), class: "btn btn-sm btn-outline-secondary"  %></td>
+        <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger"  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Ingredient', new_ingredient_path %>
+<%= link_to 'New Ingredient', new_ingredient_path, class: "btn btn-sm btn-primary"  %>
