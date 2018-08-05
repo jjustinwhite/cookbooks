@@ -24,13 +24,17 @@ a:hover {
  * Base structure
  */
 
-html,
-body {
+html#home,
+body#home {
   height: 100%;
-  background-color: #333;
+  background: url(https://i.imgur.com/LK0UC3b.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-body {
+body#home {
   display: -ms-flexbox;
   display: flex;
   color: #fff;
