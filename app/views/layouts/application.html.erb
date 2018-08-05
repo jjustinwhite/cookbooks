@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="<%= params[:controller] %>">
   <head>
     <title>Cookbooks</title>
     <%= csrf_meta_tags %>
@@ -7,11 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
+  <body id="<%= params[:controller] %>">
 
-  <%= render "layouts/navbar" %>
+  <%= render "layouts/navbar" unless params[:controller] == 'home' %>
+    
   <div class="container">
     <%= yield %>
   </div>

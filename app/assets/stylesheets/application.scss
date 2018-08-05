@@ -14,3 +14,9 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "home";
+
+.recipe-title {
+	padding-top: 10px;
+}
+
