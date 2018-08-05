@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Cookbook.destroy_all
+Recipe.destroy_all
+
 
 Cookbook.create([{
   name: "Fresh Juice"
