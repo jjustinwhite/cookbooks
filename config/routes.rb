@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
-  get 'home/index'
 
-  get 'users/new'
+  get  'users/new'
+  get  '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 
   resources :ingredients
   resources :recipes
   resources :cookbooks
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users
 end
