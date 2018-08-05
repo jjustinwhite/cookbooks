@@ -1,5 +1,24 @@
 <% provide(:title, @user.name) %>
 <h1>
   <%= gravatar_for @user %>
-  <%= @user.name %>
+  <%= @user.name %>'s Cookbooks
 </h1>
+
+<% if @cookbooks.any? %>
+<div class="card-deck">
+  <% @cookbooks.each do |cookbook| %>
+      <div class="card">
+        <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= cookbook.name %></h5>
+          <p class="card-text text-center">By <%= link_to cookbook.user.name, cookbook.user %></p>
+        <%= link_to 'Show', cookbook, class: "btn btn-sm btn-outline-primary" %>
+        <%= link_to 'Edit', edit_cookbook_path(cookbook), class: "btn btn-sm btn-outline-secondary" %>
+        <%= link_to 'Destroy', cookbook, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger float-right" %>
+        </div>
+      </div>
+  <% end %>
+</div>
+<% else %>
+  </h3><%= @user.name %> has no cookbooks yet!</h3>
+<% end %>

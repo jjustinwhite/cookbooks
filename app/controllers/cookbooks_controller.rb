@@ -25,6 +25,7 @@ class CookbooksController < ApplicationController
   # POST /cookbooks.json
   def create
     @cookbook = Cookbook.new(cookbook_params)
+    @cookbook.user_id = current_user.id
 
     respond_to do |format|
       if @cookbook.save
@@ -69,6 +70,6 @@ class CookbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cookbook_params
-      params.require(:cookbook).permit(:name)
+      params.require(:cookbook).permit(:name, :user_id)
     end
 end

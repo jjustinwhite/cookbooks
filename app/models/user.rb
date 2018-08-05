@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :cookbooks
 
   before_save { email.downcase! }
   validates :name,  presence: true

@@ -6,19 +6,57 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cookbooks = [{
-  name: "Fresh Juice"
+users = [{
+  name: "Frank Zappa",
+  email: "frank@zappa.com",
+  password: "juice123",
+  password_confirmation: "juice123",
+  admin: true
 },
 {
-  name: "Elliott's Cookbook"
+  name: "John Locke",
+  email: "john@locke.com",
+  password: "4815162342",
+  password_confirmation: "4815162342",
 },
 {
-  name: "Italian"
-},
-{
-  name: "Cuban"
+  name: "Elliott Cox",
+  email: "elliott@cox.com",
+  password: "secret",
+  password_confirmation: "secret"
 }]
-cookbooks.each {|book| Cookbook.find_or_create_by(book)}
+
+users.each do |user|
+  User.create(user) if User.find_by(email: user[:email]).nil?
+end
+
+john = User.find_by(email: "john@locke.com")
+frank = User.find_by(email: "frank@zappa.com")
+elliott = User.find_by(email: "elliott@cox.com")
+
+cookbooks = [{
+  name: "Fresh Juice",
+  user_id: frank.id
+},
+{
+  name: "Italian",
+  user_id: frank.id
+},
+{
+  name: "Elliott's Cookbook",
+  user_id: elliott.id
+},
+{
+  name: "Cuban",
+  user_id: frank.id
+},
+{
+  name: "John's Survival Food",
+  user_id: john.id
+}]
+cookbooks.each do |book|
+ Cookbook.create(book) if Cookbook.find_by(name: book[:name], user_id: book[:user_id]).nil?
+end
 
 recipes = [{
   name: "Elliott's Chicken",
@@ -117,23 +155,8 @@ portions = [{
   quantity: 2,
   measurement: "tablespoons"
 }]
-portions.each {|portion| Portion.find_or_create_by(portion)}
-
-
-users = [{
-  name: "Frank Zappa",
-  email: "frank@zappa.com",
-  password: "juice123",
-  password_confirmation: "juice123",
-  admin: true
-},
-{
-  name: "John Locke",
-  email: "john@locke.com",
-  password: "4815162342",
-  password_confirmation: "4815162342"
+portions.each {|portion| Portion.find_or_create_by(portion)}il").first.id,
+  quantity: 2,
+  measurement: "tablespoons"
 }]
-
-users.each do |user|
-  User.create(user) if User.find_by(email: user[:email]).nil?
-end
+portions.each {|portion| Portion.find_or_create_by(portion)}
