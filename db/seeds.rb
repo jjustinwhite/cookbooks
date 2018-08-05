@@ -5,12 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Cookbook.destroy_all
-Recipe.destroy_all
-Ingredient.destroy_all
 
-
-Cookbook.create([{
+cookbooks = [{
   name: "Fresh Juice"
 },
 {
@@ -18,10 +14,10 @@ Cookbook.create([{
 },
 {
   name: "Cuban"
-}])
+}]
+cookbooks.each {|book| Cookbook.find_or_create_by(book)}
 
-
-Recipe.create([{
+recipes = [{
   name: "Elliott's Chicken",
   prep_time: 3,
   cook_time: 10,
@@ -61,9 +57,10 @@ Recipe.create([{
                       cut at an angle into small sandwich wedges (triangles).
                       Place on a large platter and serve while still hot.",
   serves: 8
-}])
+}]
+recipes.each {|recipe| Recipe.find_or_create_by(recipe)}
 
-Ingredient.create([{
+ingredients = [{
   name: "Chicken Breast"
 },
 {
@@ -77,4 +74,45 @@ Ingredient.create([{
 },
 {
   name: "Oil"
-}])     
+}]
+ingredients.each {|ingredient| Ingredient.find_or_create_by(ingredient)}
+
+chicken_recipe = Recipe.where(name: "Elliott's Chicken").first
+
+portions = [{
+  # Chicken Breast for Elliott's Chicken
+  recipe_id: chicken_recipe.id,
+  ingredient_id: Ingredient.where(name: "Chicken Breast").first.id, 
+  quantity: 1, 
+  measurement: "piece"
+},
+{
+  # Cayanne Pepper for Elliott's Chicken
+  recipe_id: chicken_recipe.id,
+  ingredient_id: Ingredient.where(name: "Cayanne Pepper").first.id, 
+  quantity: 1, 
+  measurement: "tablespoon"  
+},
+{
+  # Garlic Powder for Elliott's Chicken
+  recipe_id: chicken_recipe.id,
+  ingredient_id: Ingredient.where(name: "Garlic Powder").first.id, 
+  quantity: 1, 
+  measurement: "tablespoon"  
+},
+{
+  # Salt for Elliott's Chicken
+  recipe_id: chicken_recipe.id,
+  ingredient_id: Ingredient.where(name: "Salt").first.id, 
+  quantity: 1, 
+  measurement: "teaspoon"  
+},
+{
+  # Oil for Elliott's Chicken
+  recipe_id: chicken_recipe.id,
+  ingredient_id: Ingredient.where(name: "Oil").first.id,
+  quantity: 2,
+  measurement: "tablespoons"  
+}]
+portions.each {|portion| Portion.find_or_create_by(portion)}
+
