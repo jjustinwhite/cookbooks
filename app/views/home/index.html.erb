@@ -3,8 +3,12 @@
     <div class="inner">
       <h3 class="masthead-brand">Cookbooks</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a class="nav-link active" href="/cookbooks">Home</a>
-        <a class="nav-link" href="/recipes">Recipes</a>
+        <% if logged_in? %>
+          <a class="nav-link active" href="/cookbooks">Home</a>
+          <a class="nav-link active" href="/recipes">Recipes</a>
+        <% else %>
+          <a class="nav-link active" href="/signup">Sign Up</a>
+        <% end %>
       </nav>
     </div>
   </header>
@@ -13,7 +17,7 @@
     <h1 class="cover-heading">Bon Appétit</h1>
     <p class="lead">Cookbooks is a fun way to create and share recipes with friends! Respect your fucking craft. Can we all just agree as the greater design community to stop fucking talking about Comic Sans?</p>
     <p class="lead">
-      <a href="/cookbooks" class="btn btn-lg btn-secondary">Let's eat</a>
+      <%= link_to "Let's eat", "#{ logged_in? ? "/cookbooks" : "/signup"}", class: "btn btn-lg btn-secondary" %>
     </p>
   </main>
 
