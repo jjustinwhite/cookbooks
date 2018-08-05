@@ -155,8 +155,4 @@ portions = [{
   quantity: 2,
   measurement: "tablespoons"
 }]
-portions.each {|portion| Portion.find_or_create_by(portion)}il").first.id,
-  quantity: 2,
-  measurement: "tablespoons"
-}]
 portions.each {|portion| Portion.find_or_create_by(portion)}
