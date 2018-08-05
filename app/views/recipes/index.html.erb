@@ -7,18 +7,17 @@
 
 <% @recipes.each do |recipe| %>
     
- <div class="card flex-row flex-wrap">
-    <div class="card-header border-0">
-        <img src="//placehold.it/150" alt="">
-    </div>
-    <div class="card-block px-3">
-      <h4 class="card-title recipe-title"><%= recipe.name %></h4>
-      <p class="card-text">Prep time <%= recipe.prep_time %>, Cook time <%= recipe.prep_time %>, Serves <%= recipe.serves %></p>
-      <p>Description</p>
-      <%= link_to 'Show', recipe, class: "btn btn-sm btn-outline-primary" %>
-      <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-sm btn-outline-secondary" %>
-      <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
-    </div>
+ <div class="card flex-row flex-wrap text-black">
+  <img class="card-img" src="//placehold.it/200" alt="Card image">
+  <div class="card-img-overlay">
+    <h5 class="card-title recipe-title"><%= recipe.name %></h5>
+    <p class="card-text">Prep time <%= recipe.prep_time %>, Cook time <%= recipe.prep_time %>, Serves <%= recipe.serves %></p>
+    <p>Description</p>
+    <%= link_to 'Show', recipe, class: "btn btn-sm btn-outline-primary" %>
+    <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-danger" %>
   </div>
+</div>
 
+<br />
 <% end %>

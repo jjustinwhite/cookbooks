@@ -2,14 +2,7 @@
 
 <h1>Ingredients</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<table class="table table-striped">
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
@@ -21,7 +14,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Ingredient', new_ingredient_path %>
