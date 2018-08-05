@@ -1,0 +1,31 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<% @users.in_groups_of(3) do |group| %>
+  <div class="card-deck">
+    <% group.each do |user|%>
+      <% if user %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+
+              <%= link_to user.name, user, class: "card-text" %>
+            </h5>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Created <%= time_ago_in_words(user.created_at) %> ago</small>
+          </div>
+          <% if current_user.admin? && !current_user?(user) %>
+            <div class="card-footer bg-transparent border-danger">
+              <% if current_user.admin? && !current_user?(user) %>
+                <%= link_to "delete", user, method: :delete,
+                                      data: { confirm: "You sure?" },
+                                      class: "text-danger float-right" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

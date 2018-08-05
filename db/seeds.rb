@@ -82,37 +82,55 @@ chicken_recipe = Recipe.where(name: "Elliott's Chicken").first
 portions = [{
   # Chicken Breast for Elliott's Chicken
   recipe_id: chicken_recipe.id,
-  ingredient_id: Ingredient.where(name: "Chicken Breast").first.id, 
-  quantity: 1, 
+  ingredient_id: Ingredient.where(name: "Chicken Breast").first.id,
+  quantity: 1,
   measurement: "piece"
 },
 {
   # Cayanne Pepper for Elliott's Chicken
   recipe_id: chicken_recipe.id,
-  ingredient_id: Ingredient.where(name: "Cayanne Pepper").first.id, 
-  quantity: 1, 
-  measurement: "tablespoon"  
+  ingredient_id: Ingredient.where(name: "Cayanne Pepper").first.id,
+  quantity: 1,
+  measurement: "tablespoon"
 },
 {
   # Garlic Powder for Elliott's Chicken
   recipe_id: chicken_recipe.id,
-  ingredient_id: Ingredient.where(name: "Garlic Powder").first.id, 
-  quantity: 1, 
-  measurement: "tablespoon"  
+  ingredient_id: Ingredient.where(name: "Garlic Powder").first.id,
+  quantity: 1,
+  measurement: "tablespoon"
 },
 {
   # Salt for Elliott's Chicken
   recipe_id: chicken_recipe.id,
-  ingredient_id: Ingredient.where(name: "Salt").first.id, 
-  quantity: 1, 
-  measurement: "teaspoon"  
+  ingredient_id: Ingredient.where(name: "Salt").first.id,
+  quantity: 1,
+  measurement: "teaspoon"
 },
 {
   # Oil for Elliott's Chicken
   recipe_id: chicken_recipe.id,
   ingredient_id: Ingredient.where(name: "Oil").first.id,
   quantity: 2,
-  measurement: "tablespoons"  
+  measurement: "tablespoons"
 }]
 portions.each {|portion| Portion.find_or_create_by(portion)}
 
+
+users = [{
+  name: "Frank Zappa",
+  email: "frank@zappa.com",
+  password: "juice123",
+  password_confirmation: "juice123",
+  admin: true
+},
+{
+  name: "John Locke",
+  email: "john@locke.com",
+  password: "4815162342",
+  password_confirmation: "4815162342"
+}]
+
+users.each do |user|
+  User.create(user) if User.find_by(email: user[:email]).nil?
+end

@@ -13,8 +13,13 @@
   <body id="<%= params[:controller] %>">
 
   <%= render "layouts/navbar" unless params[:controller] == 'home' %>
-    
+
   <div class="container">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+
+    <%= tag("br") if params[:controller] != "home" %>
     <%= yield %>
   </div>
   </body>
