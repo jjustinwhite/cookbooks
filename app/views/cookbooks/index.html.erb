@@ -10,7 +10,7 @@
         <div class="card">
           <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title text-center"><%= cookbook.name %></h5>
+            <h5 class="card-title text-center"><%= cookbook.name %>&nbsp;<span class="badge badge-secondary"><%= cookbook.recipes.count %></span></h5>
             <p class="card-text text-center">By <%= link_to cookbook.user.name, cookbook.user %></p>
           <%= link_to 'Show', cookbook, class: "btn btn-sm btn-outline-primary" %>
           <%= link_to 'Edit', edit_cookbook_path(cookbook), class: "btn btn-sm btn-outline-secondary" %>
