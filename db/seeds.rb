@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Cookbook.destroy_all
 Recipe.destroy_all
+Ingredient.destroy_all
 
 
 Cookbook.create([{
@@ -24,7 +25,7 @@ Recipe.create([{
   name: "Elliott's Chicken",
   prep_time: 3,
   cook_time: 10,
-  prep_instructions: "Take chicken out of package, season liberally with cayanne pepper, garlic, and salt.",
+  prep_instructions: "Take chicken breast out of package, season liberally with cayanne pepper, garlic powder, and salt.",
   cook_instructions: "Place chicken in hot pan coated in oil on medium heat. Cover. 5 minutes per side.",
   serves: 2
 },
@@ -61,3 +62,19 @@ Recipe.create([{
                       Place on a large platter and serve while still hot.",
   serves: 8
 }])
+
+Ingredient.create([{
+  name: "Chicken Breast"
+},
+{
+  name: "Cayanne Pepper"
+},
+{
+  name: "Garlic Powder"
+},
+{
+  name: "Salt"
+},
+{
+  name: "Oil"
+}])     
