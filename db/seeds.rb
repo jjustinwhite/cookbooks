@@ -10,6 +10,9 @@ cookbooks = [{
   name: "Fresh Juice"
 },
 {
+  name: "Elliott's Cookbook"
+},
+{
   name: "Italian"
 },
 {

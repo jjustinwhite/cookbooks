@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
-<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-sm btn-outline-primary" %>
-<hr>
 
+<div class="row">
+    <div class="col-6 col-sm">
+		<h1>Recipes</h1>
+	</div>
+	 <div class="col-6 col-sm sm-pad-top">
+		<%= link_to 'New Recipe', new_recipe_path, class: "btn btn-sm btn-primary float-right" %>
+	</div>
+</div>
 
 <% @recipes.each do |recipe| %>
     
