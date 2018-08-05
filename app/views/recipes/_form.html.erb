@@ -41,6 +41,33 @@
     <%= form.number_field :serves, class: "form-control" %>
   </div>
 
+  <br >
+
+  <h4>Ingredients</h4> <hr />
+
+  <%= form.fields_for :portions do |p| %>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col">
+          <%= p.number_field :quantity, class: "form-control"  %>
+        </div>
+        <div class="col">
+          <select id="inputState" class="form-control">
+              <option value="" disabled selected>Select your option</option>
+            <% Portion.all.each.uniq do |p| %>
+              <option><%= p.measurement %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="col">
+          <%= p.text_field :quantity, class: "form-control"  %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <hr />
+
   <div class="actions">
     <%= form.submit%>
   </div>

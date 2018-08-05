@@ -19,6 +19,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+    @ingredients = @recipe.portions
   end
 
   # POST /recipes
