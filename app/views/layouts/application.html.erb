@@ -12,8 +12,10 @@
 
   <body id="<%= params[:controller] %>">
 
-    <%= render "layouts/navbar" unless params[:controller] == 'home' %>
-
+  <%= render "layouts/navbar" unless params[:controller] == 'home' %>
+    
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>

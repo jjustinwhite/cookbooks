@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :prep_time %>
-    <%= form.number_field :prep_time %>
+    <%= form.number_field :prep_time, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cook_time %>
-    <%= form.number_field :cook_time %>
+    <%= form.number_field :cook_time, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :prep_instructions %>
-    <%= form.text_area :prep_instructions %>
+    <%= form.text_area :prep_instructions, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :cook_instructions %>
-    <%= form.text_area :cook_instructions %>
+    <%= form.text_area :cook_instructions, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :serves %>
-    <%= form.number_field :serves %>
+    <%= form.number_field :serves, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit%>
   </div>
 <% end %>
