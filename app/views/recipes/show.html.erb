@@ -30,5 +30,10 @@
   <%= @recipe.serves %>
 </p>
 
+<p>
+  <strong>Cookbook:</strong>
+  <%= @recipe.cookbook.name%>
+</p>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
