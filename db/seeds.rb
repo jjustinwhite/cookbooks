@@ -121,7 +121,8 @@ users = [{
   name: "Frank Zappa",
   email: "frank@zappa.com",
   password: "juice123",
-  password_confirmation: "juice123"
+  password_confirmation: "juice123",
+  admin: true
 },
 {
   name: "John Locke",
