@@ -46,6 +46,16 @@
     <%= collection_select(:recipe, :cookbook_id, Cookbook.all, :id, :name, {:include_blank => true}, {class: "form-control"}) %>
   </div>
 
+  <br /><hr /><br />
+
+  <h1>Ingredients</h1>
+  <%= form.fields_for :ingredients do |i| %>
+    <div class="form-group">
+      <%= i.label :name %>
+      <%= i.text_field :name, class: "form-control" %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
