@@ -108,31 +108,62 @@ chicken_recipe = Recipe.where(name: "Elliott's Chicken").first
 ingredients = [{
   name: "Chicken Breast",
   recipe_id: chicken_recipe.id,
+<<<<<<< Updated upstream
+  ingredient_id: Ingredient.where(name: "Chicken Breast").first.id,
+  quantity: 1,
+  measurement: "piece"
+=======
   quantity: 1, 
   measurement: "piece"  
+>>>>>>> Stashed changes
 },
 {
   name: "Cayanne Pepper",
   recipe_id: chicken_recipe.id,
+<<<<<<< Updated upstream
+  ingredient_id: Ingredient.where(name: "Cayanne Pepper").first.id,
+  quantity: 1,
+  measurement: "tablespoon"
+=======
   quantity: 1, 
   measurement: "tablespoon"    
+>>>>>>> Stashed changes
 },
 {
   name: "Garlic Powder",
   recipe_id: chicken_recipe.id,
+<<<<<<< Updated upstream
+  ingredient_id: Ingredient.where(name: "Garlic Powder").first.id,
+  quantity: 1,
+  measurement: "tablespoon"
+=======
   quantity: 1, 
   measurement: "tablespoon"    
+>>>>>>> Stashed changes
 },
 {
   name: "Salt",
   recipe_id: chicken_recipe.id,
+<<<<<<< Updated upstream
+  ingredient_id: Ingredient.where(name: "Salt").first.id,
+  quantity: 1,
+  measurement: "teaspoon"
+=======
   quantity: 1, 
   measurement: "teaspoon"    
+>>>>>>> Stashed changes
 },
 {
   name: "Oil",
   recipe_id: chicken_recipe.id,
   quantity: 2,
+<<<<<<< Updated upstream
+  measurement: "tablespoons"
+}]
+portions.each {|portion| Portion.find_or_create_by(portion)}
+=======
   measurement: "tablespoons"    
 }]
 ingredients.each {|ingredient| Ingredient.find_or_create_by(ingredient)}
+
+>>>>>>> Stashed changes

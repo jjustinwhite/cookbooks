@@ -1,4 +1,3 @@
 class Ingredient < ApplicationRecord
-	has_many :portions
-	has_many :recipes, through: :portions
+	belongs_to :recipe
 end

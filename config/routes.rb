@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :ingredients
   resources :recipes
   resources :cookbooks
   resources :users
+  resources :ingredients
 end

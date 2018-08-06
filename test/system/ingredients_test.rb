@@ -14,7 +14,10 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredients_url
     click_on "New Ingredient"
 
+    fill_in "Measurement", with: @ingredient.measurement
     fill_in "Name", with: @ingredient.name
+    fill_in "Quantity", with: @ingredient.quantity
+    fill_in "Recipe", with: @ingredient.recipe_id
     click_on "Create Ingredient"
 
     assert_text "Ingredient was successfully created"
@@ -25,7 +28,10 @@ class IngredientsTest < ApplicationSystemTestCase
     visit ingredients_url
     click_on "Edit", match: :first
 
+    fill_in "Measurement", with: @ingredient.measurement
     fill_in "Name", with: @ingredient.name
+    fill_in "Quantity", with: @ingredient.quantity
+    fill_in "Recipe", with: @ingredient.recipe_id
     click_on "Update Ingredient"
 
     assert_text "Ingredient was successfully updated"

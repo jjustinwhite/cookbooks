@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Serves:</strong>
+  <%= @recipe.serves %>
+</p>
+
+<p>
   <strong>Prep time:</strong>
   <%= @recipe.prep_time %>
 </p>
@@ -25,10 +30,11 @@
   <%= @recipe.cook_instructions %>
 </p>
 
-<p>
-  <strong>Serves:</strong>
-  <%= @recipe.serves %>
-</p>
+<p><strong>Ingredients:</strong></p>
+<hr/>
+<% @ingredients.each do |ingredient| %>
+  <%= ingredient.quantity.round %> <%= ingredient.measurement %> of <%= ingredient.name %> <hr/>
+<% end %>
 
 <p>
   <strong>Cookbook:</strong>
