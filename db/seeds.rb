@@ -58,13 +58,20 @@ cookbooks.each do |book|
  Cookbook.create(book) if Cookbook.find_by(name: book[:name], user_id: book[:user_id]).nil?
 end
 
+juice = Cookbook.find_by(name: "Fresh Juice")
+italian = Cookbook.find_by(name: "Italian")
+elliotts_book = Cookbook.find_by(name: "Elliott's Cookbook")
+cuban = Cookbook.find_by(name: "Cuban")
+survive = Cookbook.find_by(name: "John's Survival Food")
+
 recipes = [{
   name: "Elliott's Chicken",
   prep_time: 3,
   cook_time: 10,
   prep_instructions: "Take chicken breast out of package, season liberally with cayanne pepper, garlic powder, and salt.",
   cook_instructions: "Place chicken in hot pan coated in oil on medium heat. Cover. 5 minutes per side.",
-  serves: 2
+  serves: 2,
+  cookbook_id: elliotts_book.id
 },
 {
   name: "Mike's Tasty Juice",
@@ -72,7 +79,8 @@ recipes = [{
   cook_time: 1,
   prep_instructions: "Fill Brita water filter with water (if needed),and place in fridge. Cut lemon into wedges.",
   cook_instructions: "Pour water into glass, squeeze lemon wedge over glass, place squeezed wedge into glass if desired.",
-  serves: 1
+  serves: 1,
+  cookbook_id: juice.id
 },
 {
   name: "Cubano Sandwich",
@@ -97,7 +105,8 @@ recipes = [{
                       Slice and serve. Remove the sandwich from the grill and
                       cut at an angle into small sandwich wedges (triangles).
                       Place on a large platter and serve while still hot.",
-  serves: 8
+  serves: 8,
+  cookbook_id: cuban.id
 }]
 recipes.each {|recipe| Recipe.find_or_create_by(recipe)}
 
