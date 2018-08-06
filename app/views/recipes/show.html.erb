@@ -32,7 +32,7 @@
 
 <p><strong>Ingredients:</strong></p>
 <hr/>
-<% @ingredients.each do |ingredient| %>
+<% @recipe.ingredients.each do |ingredient| %>
   <%= ingredient.quantity.round %> <%= ingredient.measurement %> of <%= ingredient.name %> <hr/>
 <% end %>
 
