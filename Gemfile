@@ -9,6 +9,12 @@ gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.3'
 gem 'autoprefixer-rails', '8.6.5'
 
+# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
+gem 'cocoon'
+
+# the font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
