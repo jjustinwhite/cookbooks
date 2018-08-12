@@ -8,7 +8,7 @@
 <div class="card-deck">
   <% @cookbooks.each do |cookbook| %>
       <div class="card">
-        <img class="card-img-top" src="http://via.placeholder.com/350x150" alt="Card image cap">
+        <%= image_tag "cookbook", class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title text-center"><%= cookbook.name %></h5>
           <p class="card-text text-center">By <%= link_to cookbook.user.name, cookbook.user %></p>
