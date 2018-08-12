@@ -9,8 +9,8 @@
 
 <% @recipes.each do |recipe| %>
 
- <div class="card flex-row flex-wrap text-black">
-  <img class="card-img" src="//placehold.it/200" alt="Card image">
+ <div class="card flex-row flex-wrap text-white">
+  <%= image_tag "meal", class: "card-img" %>
   <div class="card-img-overlay">
     <h5 class="card-title recipe-title"><%= recipe.name %></h5>
     <p class="card-text">Prep time <%= recipe.prep_time %>, Cook time <%= recipe.prep_time %>, Serves <%= recipe.serves %></p>
