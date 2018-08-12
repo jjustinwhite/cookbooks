@@ -1,5 +1,11 @@
-<h1>All Cookbooks</h1>
-
+<div class="row">
+    <div class="col-6 col-sm">
+    <h1 class="card-title">My Cookbooks</h1>
+  </div>
+   <div class="col-6 col-sm sm-pad-top">
+    <%= link_to 'New Cookbook', new_cookbook_path, class: "btn btn-sm btn-primary float-right" %>
+  </div>
+</div>
 
 <% @cookbooks.in_groups_of(4) do |group| %>
   <div class="card-deck">
@@ -22,8 +28,3 @@
     <% end %>
   </div> <br />
 <% end %>
-
-<br />
-<div class="text-center">
-<%= link_to 'New Cookbook', new_cookbook_path, class: "btn btn-sm btn-primary" %>
-</div>
