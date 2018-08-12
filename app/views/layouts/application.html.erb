@@ -11,17 +11,24 @@
   </head>
 
   <body id="<%= params[:controller] %>">
+    <%= render "layouts/navbar" unless params[:controller] == 'home' %>
 
-  <%= render "layouts/navbar" unless params[:controller] == 'home' %>
+    <div style="padding-top:20px;"></div>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= render 'shared/flash', type: message_type, content: message %>
+      <% end %>
 
-  <div class="container">
-    <%= tag("br") if params[:controller] != "home" %>
+      <% if params[:controller] == "home" %>
+        <%= yield %>
+      <% else %>
+        <div class="card card-body bg-light">
+          <div class="container">
+             <%= yield %>
+          </div>
+        </div>
+      <% end %>
 
-    <% flash.each do |message_type, message| %>
-      <%= render 'shared/flash', type: message_type, content: message %>
-    <% end %>
-
-    <%= yield %>
-  </div>
+    </div>
   </body>
 </html>
